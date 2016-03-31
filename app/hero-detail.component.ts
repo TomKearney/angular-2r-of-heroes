@@ -1,12 +1,12 @@
 import { Component, OnInit } from 'angular2/core';
 import { RouteParams } from 'angular2/router';
-import { Hero} from './entities/hero';
+import { Hero } from './entities/hero';
 import { HeroService } from './data/hero.service';
 
 @Component({
     selector: 'my-hero-detail',
-    inputs: ['hero'],
-    templateUrl: './app/views/hero-detail.component.html'
+    templateUrl: './app/views/hero-detail.component.html',
+    styleUrls: ['./app/css/hero-detail.component.css']
 })
 
 export class HeroDetailComponent implements OnInit{
@@ -18,7 +18,12 @@ export class HeroDetailComponent implements OnInit{
 
     ngOnInit(){
         let heroId = +this._routeParams.get('id');
-        this.hero = this._heroService.getHeroBy(heroId);
+
+        this._heroService
+            .getHeroBy(heroId)
+            .then(hero => {
+                this.hero = hero;
+            });
     }
 
     goBack(){

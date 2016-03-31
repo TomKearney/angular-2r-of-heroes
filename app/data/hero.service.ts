@@ -15,7 +15,7 @@ export class HeroService{
             setTimeout(() => resolve(HEROES),2000));
     }
 
-    getHeroBy(heroId: number):Hero {
+    getHeroBy(heroId: number) {
         return Promise
             .resolve(HEROES)
             .then(heroes =>

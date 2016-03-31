@@ -8,11 +8,8 @@ import {ROUTER_PRIMARY_COMPONENT} from "angular2/router";
 
 @Component({
     selector: 'my-app',
-    template:`
-    <h1>{{title}}</h1>
-    <a [routerLink]="['Dashboard']">Dashboard</a>
-    <a [routerLink]="['Heroes']">Heroes</a>
-    <router-outlet></router-outlet>`,
+    templateUrl: './app/views/app.component.html',
+    styleUrls: ['./app/css/app.component.css'],
     directives: [ROUTER_DIRECTIVES],
     providers: [
         ROUTER_PROVIDERS,

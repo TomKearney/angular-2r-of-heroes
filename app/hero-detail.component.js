@@ -30,8 +30,13 @@ System.register(['angular2/core', 'angular2/router', './data/hero.service'], fun
                     this._routeParams = _routeParams;
                 }
                 HeroDetailComponent.prototype.ngOnInit = function () {
+                    var _this = this;
                     var heroId = +this._routeParams.get('id');
-                    this.hero = this._heroService.getHeroBy(heroId);
+                    this._heroService
+                        .getHeroBy(heroId)
+                        .then(function (hero) {
+                        _this.hero = hero;
+                    });
                 };
                 HeroDetailComponent.prototype.goBack = function () {
                     window.history.back();
@@ -39,8 +44,8 @@ System.register(['angular2/core', 'angular2/router', './data/hero.service'], fun
                 HeroDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'my-hero-detail',
-                        inputs: ['hero'],
-                        templateUrl: './app/views/hero-detail.component.html'
+                        templateUrl: './app/views/hero-detail.component.html',
+                        styleUrls: ['./app/css/hero-detail.component.css']
                     }), 
                     __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.RouteParams])
                 ], HeroDetailComponent);
