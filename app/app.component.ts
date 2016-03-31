@@ -3,6 +3,7 @@ import { Component } from 'angular2/core';
 import { DashboardComponent } from './dashboard.component';
 import { HeroService } from './data/hero.service';
 import { HeroesComponent } from './heroes.component';
+import { HeroDetailComponent } from './hero-detail.component';
 import {ROUTER_PRIMARY_COMPONENT} from "angular2/router";
 
 @Component({
@@ -30,7 +31,13 @@ import {ROUTER_PRIMARY_COMPONENT} from "angular2/router";
         name: 'Dashboard',
         component: DashboardComponent,
         useAsDefault: true
-    }])
+    },
+    {
+        path: '/hero/:id',
+        name: 'HeroDetail',
+        component: HeroDetailComponent
+    }
+    ])
 
 export class AppComponent {
     title = 'Tour of Heroes';

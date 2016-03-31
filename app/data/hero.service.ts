@@ -5,6 +5,7 @@ import {Hero} from '../entities/hero';
 @Injectable()
 
 export class HeroService{
+
     getHeroes(){
         return Promise.resolve(HEROES);
     }
@@ -12,5 +13,13 @@ export class HeroService{
     getHeroesSlowly(){
         return new Promise<Hero[]>(resolve =>
             setTimeout(() => resolve(HEROES),2000));
+    }
+
+    getHeroBy(heroId: number):Hero {
+        return Promise
+            .resolve(HEROES)
+            .then(heroes =>
+                heroes.filter(hero => hero.id === heroId)[0]
+            );
     }
 }

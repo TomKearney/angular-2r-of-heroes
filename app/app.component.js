@@ -1,4 +1,4 @@
-System.register(['angular2/router', 'angular2/core', './dashboard.component', './data/hero.service', './heroes.component'], function(exports_1, context_1) {
+System.register(['angular2/router', 'angular2/core', './dashboard.component', './data/hero.service', './heroes.component', './hero-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/router', 'angular2/core', './dashboard.component', '.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var router_1, core_1, dashboard_component_1, hero_service_1, heroes_component_1;
+    var router_1, core_1, dashboard_component_1, hero_service_1, heroes_component_1, hero_detail_component_1;
     var AppComponent;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/router', 'angular2/core', './dashboard.component', '.
             },
             function (heroes_component_1_1) {
                 heroes_component_1 = heroes_component_1_1;
+            },
+            function (hero_detail_component_1_1) {
+                hero_detail_component_1 = hero_detail_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -55,7 +58,13 @@ System.register(['angular2/router', 'angular2/core', './dashboard.component', '.
                             name: 'Dashboard',
                             component: dashboard_component_1.DashboardComponent,
                             useAsDefault: true
-                        }]), 
+                        },
+                        {
+                            path: '/hero/:id',
+                            name: 'HeroDetail',
+                            component: hero_detail_component_1.HeroDetailComponent
+                        }
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
